@@ -237,16 +237,12 @@ void Game::update(sf::Time dt)
                     if(m_sat % 30 == 0 && m_increase)
                     {
                         m_cameraSpeed += 20;
-                        std::cout << "increase" << std::endl;
                         m_increase = false;
                     }
                     if(m_sat % 31 == 0 || m_sat % 7 == 0 || m_sat % 61 == 0 || m_sat % 91 == 0 || m_sat % 121 == 0 || m_sat % 151 == 0 || m_sat % 181 == 0 || m_sat % 211 == 0)
                     {
                         m_increase = true;
                     }
-
-                    //std::cout << "Current: " << m_currentFloor << std::endl;
-                    //std::cout << "Max floor: " << m_floorNumber << std::endl;
 
                     //delete platforms
                     if(m_attempt == 1)
