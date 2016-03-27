@@ -1,6 +1,7 @@
 #include "Player.h"
 #include <iostream>
 
+#include "ResourcePath.h"
 
 Player::Player() : m_gravity(0.5), m_maxY(50)
 {
@@ -19,7 +20,7 @@ Player::Player() : m_gravity(0.5), m_maxY(50)
 
     m_bounceCounter = 50;
 
-    m_paraText.loadFromFile("data/para.png");
+    m_paraText.loadFromFile(resourcePath() + "data/para.png");
 
     m_rect.setPosition(300, 800);
 
@@ -347,4 +348,3 @@ void Player::setFailure(int num)
         m_playerSpeed = 600;
     }
 }
-

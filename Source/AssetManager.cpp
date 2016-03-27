@@ -1,6 +1,8 @@
 #include "AssetManager.h"
 #include <assert.h>
 
+#include "ResourcePath.h"
+
 AssetManager* AssetManager::sInstance = nullptr;
 
 AssetManager::AssetManager()
@@ -26,7 +28,7 @@ sf::Texture& AssetManager::GetTexture(std::string const& filename)
 	{
 		//Create an element in the texture map
 		auto& texture = texMap[filename];
-		texture.loadFromFile(filename);
+		texture.loadFromFile(resourcePath() + filename);
 		return texture;
 	}
 }
@@ -34,7 +36,7 @@ sf::Texture& AssetManager::GetTexture(std::string const& filename)
 sf::SoundBuffer& AssetManager::GetSoundBuffer(std::string const& filename)
 {
 	auto& sBufferMap = sInstance->m_SoundBuffers;
-	
+
 	auto pairFound = sBufferMap.find(filename);
 	if (pairFound != sBufferMap.end())
 	{
@@ -44,7 +46,7 @@ sf::SoundBuffer& AssetManager::GetSoundBuffer(std::string const& filename)
 	{
 		//Create an element in the SoundBuffer map
 		auto& sBuffer = sBufferMap[filename];
-		sBuffer.loadFromFile(filename);
+		sBuffer.loadFromFile(resourcePath() + filename);
 			return sBuffer;
 	}
 }
@@ -62,7 +64,7 @@ sf::Font& AssetManager::GetFont(std::string const& filename)
 	{
 		//Create an element in Font map
 		auto& font = fontMap[filename];
-		font.loadFromFile(filename);
+		font.loadFromFile(resourcePath() + filename);
 		return font;
 	}
 }

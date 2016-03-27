@@ -1,0 +1,11 @@
+set(PROJECT_SOURCES
+    ${PROJECT_SOURCES}
+    ${CMAKE_CURRENT_SOURCE_DIR}/Animator.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/AssetManager.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Game.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Platform.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Platforms.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Player.cpp
+    PARENT_SCOPE
+    )

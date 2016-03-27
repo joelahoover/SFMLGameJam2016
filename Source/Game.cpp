@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 
+#include "ResourcePath.h"
+
 const sf::Time Game::timePerFrame = sf::seconds(1.0f / 60.0f);
 
 Game::Game() : m_window(sf::VideoMode(800, 900), "Orange guy jumping on the cloud then fall ?? XD"), m_gravity(0.2), m_maxY(50)
@@ -9,15 +11,15 @@ Game::Game() : m_window(sf::VideoMode(800, 900), "Orange guy jumping on the clou
     m_floorNumber = 0;
     m_currentFloor = 0;
 
-    if(!m_themeMusicB.loadFromFile("data/audio/theme.wav"))
+    if(!m_themeMusicB.loadFromFile(resourcePath() + "data/audio/theme.wav"))
         std::cout << "Error loading theme sound " << std::endl;
 
-    m_jumpB.loadFromFile("data/audio/jump.wav");
-    m_failB.loadFromFile("data/audio/fail.wav");
-    m_bounceB.loadFromFile("data/audio/bounce.wav");
+    m_jumpB.loadFromFile(resourcePath() + "data/audio/jump.wav");
+    m_failB.loadFromFile(resourcePath() + "data/audio/fail.wav");
+    m_bounceB.loadFromFile(resourcePath() + "data/audio/bounce.wav");
 
     //m_themeMusic.setBuffer(m_themeMusicB);
-    m_themeMusic.openFromFile("data/audio/theme.wav");
+    m_themeMusic.openFromFile(resourcePath() + "data/audio/theme.wav");
     m_themeMusic.setVolume(70);
     m_themeMusic.play();
 
@@ -27,8 +29,8 @@ Game::Game() : m_window(sf::VideoMode(800, 900), "Orange guy jumping on the clou
     m_bounce.setVolume(80);
     m_themeMusic.setLoop(true);
 
-    m_wallText.loadFromFile("data/wall2.png");
-    m_floorText.loadFromFile("data/cloud_l.png");
+    m_wallText.loadFromFile(resourcePath() + "data/wall2.png");
+    m_floorText.loadFromFile(resourcePath() + "data/cloud_l.png");
 
     m_lWall.setTexture(m_wallText);
     m_rWall.setTexture(m_wallText);
@@ -68,7 +70,7 @@ Game::Game() : m_window(sf::VideoMode(800, 900), "Orange guy jumping on the clou
     m_points = 0;
     m_sat = 0;
 
-    m_font.loadFromFile("data/arial.ttf");
+    m_font.loadFromFile(resourcePath() + "data/arial.ttf");
     m_time.setFont(m_font);
     m_score.setFont(m_font);
     m_level.setFont(m_font);
@@ -85,7 +87,7 @@ Game::Game() : m_window(sf::VideoMode(800, 900), "Orange guy jumping on the clou
     m_message.setString("You Failed!  Press R to restart.");
     m_increase = false;
 
-    m_splashT.loadFromFile("data/splash.png");
+    m_splashT.loadFromFile(resourcePath() + "data/splash.png");
     m_splash.setTexture(m_splashT);
     m_splash.setPosition(0,0);
     m_start = false;
@@ -524,20 +526,3 @@ void Game::restart()
     m_sat = 0;
     m_timer = sf::Time::Zero;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -3,15 +3,16 @@
 #include <cstdio>
 #include <iostream>
 
+#include "ResourcePath.h"
 
 Platform::Platform()
 {
-    m_small.loadFromFile("data/cloud_s.png");
-    m_medium.loadFromFile("data/cloud_m.png");
-    m_large.loadFromFile("data/cloud_l.png");
+    m_small.loadFromFile(resourcePath() + "data/cloud_s.png");
+    m_medium.loadFromFile(resourcePath() + "data/cloud_m.png");
+    m_large.loadFromFile(resourcePath() + "data/cloud_l.png");
 
-    m_Ssmall.loadFromFile("data/spike_s.png");
-    m_Smedium.loadFromFile("data/spike_m.png");
+    m_Ssmall.loadFromFile(resourcePath() + "data/spike_s.png");
+    m_Smedium.loadFromFile(resourcePath() + "data/spike_m.png");
     std::srand((unsigned)time(0));
 
     int tempNum = 700;
